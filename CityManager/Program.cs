@@ -32,10 +32,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 var key = Encoding.ASCII.GetBytes(configuration.GetSection("AppSettings:Token").Value);
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
     .AddJwtBearer(
     options =>
     {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
@@ -61,8 +67,25 @@ app.UseCors(x => x
 
 app.UseHttpsRedirection();
 
-//app.UseAuthentication();
-app.UseMiddleware<AuthenticationMiddleware>();
+app.Use(async (context, next) =>
+{
+    var token = context.Request.Query["Authorization"].ToString();
+    if (!string.IsNullOrEmpty(token))
+    {
+        context.Request.Headers.Add("Authorization", "Bearer " + token);
+    }
+    else if (!string.IsNullOrEmpty(context.Request.Headers["Authorization"]) && context.Request.Headers["Authorization"] != "{}")
+    {
+        token = context.Request.Headers["Authorization"];
+        context.Request.Headers.Remove("Authorization");
+        context.Request.Headers.Add("Authorization", "Bearer " + token);
+        //context.Request.Headers.Add("Authorization", "Bearer " + token);
+    }
+    await next();
+});
+
+//app.UseMiddleware<AuthenticationMiddleware>();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

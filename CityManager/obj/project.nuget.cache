@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h8rIiKgB9s71ATFtRL5cqJDytJVpmtGEQM16T1oRnnR+JNrLsbDP5DGAfx1MwzjsvXAJeQY7f5pkAk0YEgvr4w==",
+  "dgSpecHash": "bgjuSt28YIg/eeMA+OQ+xLfPRD/TsqqZjh+a94evoguByExQ7mnNNwcEbK4gxoke921qMWP7QTEHPNuzCULi+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Haciy\\source\\repos\\CityManager\\CityManager\\CityManager.csproj",
+  "projectFilePath": "C:\\Users\\Haciy\\source\\repos\\CityManager_LastTask\\CityManager\\CityManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Haciy\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Haciy\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

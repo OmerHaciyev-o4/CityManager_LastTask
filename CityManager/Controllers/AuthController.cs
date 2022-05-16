@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CityManager.Controllers
 {
@@ -24,6 +25,7 @@ namespace CityManager.Controllers
             _configuration = configuration;
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
@@ -70,8 +72,7 @@ namespace CityManager.Controllers
                     {
                         new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                         new Claim(ClaimTypes.Name, user.UserName)
-                    }
-                    ),
+                    }),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
 
@@ -82,9 +83,7 @@ namespace CityManager.Controllers
 
             HttpContext.Response.Cookies.Append("Authorization", tokenString);
 
-           return Ok(tokenString);
-
+            return Ok(tokenString);
         }
-
     }
 }

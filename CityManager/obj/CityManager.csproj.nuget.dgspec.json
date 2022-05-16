@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Haciy\\source\\repos\\CityManager\\CityManager\\CityManager.csproj": {}
+    "C:\\Users\\Haciy\\source\\repos\\CityManager_LastTask\\CityManager\\CityManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Haciy\\source\\repos\\CityManager\\CityManager\\CityManager.csproj": {
+    "C:\\Users\\Haciy\\source\\repos\\CityManager_LastTask\\CityManager\\CityManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Haciy\\source\\repos\\CityManager\\CityManager\\CityManager.csproj",
+        "projectUniqueName": "C:\\Users\\Haciy\\source\\repos\\CityManager_LastTask\\CityManager\\CityManager.csproj",
         "projectName": "CityManager",
-        "projectPath": "C:\\Users\\Haciy\\source\\repos\\CityManager\\CityManager\\CityManager.csproj",
+        "projectPath": "C:\\Users\\Haciy\\source\\repos\\CityManager_LastTask\\CityManager\\CityManager.csproj",
         "packagesPath": "C:\\Users\\Haciy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Haciy\\source\\repos\\CityManager\\CityManager\\obj\\",
+        "outputPath": "C:\\Users\\Haciy\\source\\repos\\CityManager_LastTask\\CityManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
